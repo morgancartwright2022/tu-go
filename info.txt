@@ -1,0 +1,14 @@
+TU-GO App Info
+
+Hello there,
+This project uses Angular, Express, MySql and other Node.js modules.
+
+Important files:
+server.js (runs the back-end server)
+everything in src/app (displays the Angular front-end)
+database/testdb.js (connects to the MySql database)
+
+Important commands:
+ng serve (runs front-end server)
+nodemon server.js (runs back-end server)
+ng generate component <component-name> (generates a new Angular component)
