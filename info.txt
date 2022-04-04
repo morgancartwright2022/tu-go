@@ -10,5 +10,6 @@ database/testdb.js (connects to the MySql database)
 
 Important commands:
 ng serve (runs front-end server)
-nodemon server.js (runs back-end server)
+nodemon server.js (runs back-end server, auto-updating)
+node server.js (runs back-end server, not auto-updating)
 ng generate component <component-name> (generates a new Angular component)
