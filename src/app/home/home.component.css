@@ -1,0 +1,14 @@
+.home {
+    margin: 10px;
+    background-color: rgb(200, 220, 255);
+    padding: 15px;
+    box-shadow: 3px 3px rgb(150, 150, 150);
+    border-radius: 5px;
+    width: 500px;
+}
+h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+p {
+    font-family: Arial, Helvetica, sans-serif;
+}
