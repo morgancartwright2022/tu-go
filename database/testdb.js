@@ -9,7 +9,6 @@ const dbConnector = {
         user     : '',
         password : '',
         database : ''
-<<<<<<< HEAD
     })
 }
 
@@ -79,16 +78,6 @@ function loadFoodOptions(tbName){
                 });
             }
         });  
-=======
-    }),
-    getValue: (callback) => {
-        // Example of a database query
-        /*dbConnector.connection.query('SELECT * FROM cats AS results', function (error, results, fields) {
-            if (error) throw error;
-            callback(results);
-            // Note that we must use a callback function for this to work correctly
-        });*/
->>>>>>> ca587f70f38d49fb23e8c21bb6bf7acb20c59f5a
     }
 }
 
