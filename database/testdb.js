@@ -12,11 +12,11 @@ const dbConnector = {
     }),
     getValue: (callback) => {
         // Example of a database query
-        dbConnector.connection.query('SELECT 1 + 1 AS result', function (error, results, fields) {
+        /*dbConnector.connection.query('SELECT * FROM cats AS results', function (error, results, fields) {
             if (error) throw error;
             callback(results);
             // Note that we must use a callback function for this to work correctly
-        });
+        });*/
     }
 }
 

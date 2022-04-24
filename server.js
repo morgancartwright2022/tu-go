@@ -3,6 +3,7 @@
 const express = require('express');
 const db = require('./database/testdb.js');
 const cors = require('cors');
+const { __values } = require('tslib');
 const app = express();
 const port = 3000;
 
@@ -21,7 +22,12 @@ app.get('/', (req, res) => {
 app.get('/data', (req, res) => {
     // Route that shows the capabilities of sending data from databases
     db.dbConnector.getValue(value => {
-        res.send(value);
+        value.map(row => {
+            const newRow = row;
+            newRow.name = row.name + " the Cat";
+            return newRow;
+        });
+        res.send(JSON.stringify(value));
     });
 });
 
