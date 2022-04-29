@@ -1,14 +1,31 @@
 <!-- Starter HTML for home page component -->
-<div class="home">
-    <h1>Welcome to TU-GO</h1>
-    <p>
-        Hello! Welcome to our application. This app will allow you to order food directly
-        from campus dining services. It will work by giving you options for food orders,
-        which you can place into your virtual cart. When ready, you can check out and
-        a message will be sent to dining services, telling them what you would like to order.
-        When the food is finished, you will you be notified so that you can come get it.
-    </p>
-    <br>
-    <p>Testing:</p>
+<div id="navbar">
+    <img id="homeLogo" src="assets/images/whitepaw.png">
+    <ul>
+        <li><a>About Us</a></li>
+        <li><a>Order</a></li>
+        <li><a>Cart</a></li>
+    </ul> 
+    <img id="profileIcon" src = "assets/images/userIcon.png">
+</div>
+<div >
+    <img id = "CSI_Pic" src="assets/images/trinityu.jpg">
+</div>
+<div id="grouper">
+    <div id="cart">
+        <h4>Cart</h4>
+    </div>
+
+    <div id="restSelect">
+        <div class="restDescr">
+            <div id="descr"><h4>Freshii</h4><p>Freshii serves all things healthy, all things fresh, and most things natural and organic! Leading with Salads, Freshii also offers Burritos, Wraps, Bowls, Soups, and Smoothies.</p></div>
+        </div>
+        <div class="restDescr">
+            <div id="descr"><h4>Taco Taco</h4><p>Taco Taco Cafe's menu features delicious tacos made from home-made tortillas, as well as traditional Mexican combination platters. Taco Taco Cafe is available for breakfast, lunch and dinner.</p></div>
+        </div>
+        <div class="restDescr">
+            <div id="descr"><h4>Einsteins</h4><p>Visit Einstein Bros. Bagels in the Coates Student Center, next to The Commons Food Court. Einstein's features freshly baked bagels, Caribou coffee and delicious pastries, snacks, signature sandwiches and salads. We also offer several grab-and-go items! You'll stop by for the convenience and keep coming back for the quality and service!</p></div>
+        </div>
+    </div>
     <button (click)="displayValue()">Get Data Value</button>
 </div>
