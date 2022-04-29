@@ -1,6 +1,6 @@
 {
   "name": "tu-go",
-  "version": "0.0.0",
+  "version": "16.14.2",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
