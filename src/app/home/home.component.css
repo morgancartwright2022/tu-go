@@ -1,0 +1,101 @@
+
+body{
+    
+}
+ul {
+    list-style-type: none;
+    margin: 0;  
+    padding: 0;
+    overflow: hidden;
+    width: 100%;
+    
+  }
+  li {
+    float: left;
+  }
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+.center {
+    /*positioning*/
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+#grouper{
+    display: flex;
+    justify-content: space-between; 
+
+}
+#cart{
+    padding:10px;
+    background-color: #a16f6f;
+    width:50%;
+    height:600px;
+}
+#restSelect{
+    min-height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;  
+}
+.restDescr h4{
+    font-size: 40px;
+}
+.restDescr{
+    color:white;
+    margin: 10px;
+    padding:10px;
+    height: 300px;
+    width: 90%;
+    background-color: maroon;
+    min-height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;  
+    
+}
+
+    /*text
+    background-color: maroon;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+    font-size: 60px;
+    width: 70vw;
+    height: 30vw;
+    min-height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;  
+}
+*/
+#navbar{
+    height: 100px;
+    color:white;
+    background-color: maroon;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;  
+}
+#homeLogo{
+    height:90px;
+    width: 90px;
+}
+#profileIcon{
+height: 90px;
+}
+#CSI_Pic{
+    height:400px;
+    width: 100%;
+
+}
