@@ -12,10 +12,10 @@ const dbConnector = {
     connection: mysql.createConnection({
         // All the info below is used to connect to our database
         // Make sure to fill this out if it is empty
-        host: 'database-1.c4ealzdwrdcb.us-west-1.rds.amazonaws.com',
-        user: 'admin',
-        password: 'SneakySnake$77',
-        database: 'tuGoDB'
+        host: '',
+        user: '',
+        password: '',
+        database: ''
     }),
     createDatabase: (dbName) => {
         dbConnector.connection.query('CREATE DATABASE ' + dbName, function(err, res, fds) {

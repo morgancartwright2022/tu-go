@@ -3,10 +3,10 @@ const mysql = require('mysql');
 var tableName = "foodOptions";
 
 const dbConnector = mysql.createConnection({
-    host: 'database-1.c4ealzdwrdcb.us-west-1.rds.amazonaws.com',
-    user: 'admin',
-    password: 'SneakySnake$77',
-    database: 'tuGoDB'
+    host: '',
+    user: '',
+    password: '',
+    database: ''
 })
 
 //storeName and tableName expected to be strings
