@@ -3,19 +3,17 @@ const mysql = require('mysql');
 const fs = require('fs');
 const { callbackify } = require('util');
 
-var databaseName = "tuGoDB";
-var tableName = "foodOptions";
-var columns = "id SMALLINT(3) NOT NULL, name VARCHAR(50) NOT NULL, description TINYTEXT, " +
-    "store VARCHAR(30) NOT NULL, price DOUBLE(4,2) NOT NULL, tags TINYTEXT, customizations TINYTEXT, PRIMARY KEY (id)"
+let databaseName = "tuGoDB";
+let tableName = "foodOptions";
+let columns = "id SMALLINT(3) NOT NULL, name VARCHAR(50) NOT NULL, description TINYTEXT, " +
+    "store VARCHAR(30) NOT NULL, price DOUBLE(4,2) NOT NULL, tags TINYTEXT, customizations MEDIUMTEXT, PRIMARY KEY (id)"
 
 const dbConnector = {
     connection: mysql.createConnection({
-        // All the info below is used to connect to our database
-        // Make sure to fill this out if it is empty
         host: '',
         user: '',
         password: '',
-        database: ''
+        database: ''  
     }),
     createDatabase: (dbName) => {
         dbConnector.connection.query('CREATE DATABASE ' + dbName, function(err, res, fds) {
@@ -41,19 +39,19 @@ const dbConnector = {
 function loadFoodOptions(tbName){
     fs.readFile("FoodOptions.csv", "utf-8", function (err, dat) {
 	    if(err) return console.error(err);
-	    var fileContents = dat;
-        var lines = fileContents.split("\r\n");
-        var labels = lines[0].split(",");
+	    let fileContents = dat;
+        let lines = fileContents.split("\r\n");
+        let labels = lines[0].split(",");
 
-        for(var i = 1; i < lines.length; i++){
-            var contents = lines[i].split(",");
-            var id = contents[0];
-            var name = contents[1];
-            var description = (contents[2].split(";")).join(",");
-            var store = contents[3];
-            var price = contents[4];
-            var tags = (contents[5].split(";")).join(",");
-            var customizations = (contents[6].split(";")).join(",");
+        for(let i = 1; i < lines.length; i++){
+            let contents = lines[i].split(",");
+            let id = contents[0];
+            let name = contents[1];
+            let description = (contents[2].split(";")).join(",");
+            let store = contents[3];
+            let price = contents[4];
+            let tags = (contents[5].split(";")).join(",");
+            let customizations = (contents[6].split(";")).join(",");
         
             dbConnector.loadOption("INSERT INTO " + tbName + " VALUES (" + id + ", '" + name + "', '" + description + "', '" + store + "', " + price + ", '" + tags + "', '" + customizations + "')");
         }

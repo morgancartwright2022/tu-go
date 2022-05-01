@@ -1,7 +1,7 @@
 // This is our Express server
 // It will handle all of the middleware and back-end data transfer
 const express = require('express');
-const db = require('./database/testdb.js');
+const db = require('./database/displayQueries.js');
 const cors = require('cors');
 const { __values } = require('tslib');
 const app = express();
@@ -19,6 +19,7 @@ app.get('/', (req, res) => {
     res.send("hello world");
 });
 
+/*
 app.get('/data', (req, res) => {
     // Route that shows the capabilities of sending data from databases
     db.dbConnector.getValue(value => {
@@ -30,8 +31,52 @@ app.get('/data', (req, res) => {
         res.send(JSON.stringify(value));
     });
 });
+*/
 
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`);
 });
 // Use nodemon server.js to start
+
+//Olivia's stuff vvv
+function formatCustomizations(options){
+    let allJSONS = [];
+    let allCusts = {};
+    for(let i = 0; i < options.length; i++){
+        let eachPair = options[i].customizations.split(",");
+        for(let j = 0; j < eachPair.length; j++){
+            console.log(eachPair[j]);
+            let trimmed = eachPair[j].trim();
+            let whole = trimmed.split(":");
+            console.log(whole);
+            if(whole[0] !== "" && whole[1] !== ""){
+                let partOne = whole[0].substr(1, whole[0].length-1);
+                let partTwo = whole[1].substr(0, whole[1].length-1);
+                allCusts[partOne] = Number(partTwo);
+            }
+            allJSONS.push({name: options[i].name, description: options[i].description, price: options[i].price, customizations: allCusts});
+        }
+    }
+    return(JSON.stringify(allJSONS));
+}
+
+app.get('/Freshii', (req, res) => {
+    db.dbConnector.storeRetrieve("Freshii", options => {
+        let displayFormat = formatCustomizations(options);
+        res.send(displayFormat);
+    });
+});
+
+app.get('/Einsteins', (req, res) => {
+    db.dbConnector.storeRetrieve("Einstein Bros. Bagels", options => {
+        let displayFormat = formatCustomizations(options);
+        res.send(displayFormat);
+    });
+});
+
+app.get('/TacoTaco', (req, res) => {
+    db.dbConnector.storeRetrieve("Taco Taco", options => {
+        let displayFormat = formatCustomizations(options);
+        res.send(displayFormat);
+    });
+});
