@@ -1,3 +1,32 @@
+
 <div class="banner-container">
-    <h2>TU - GO APP</h2>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+        
+         
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="navbar-brand">
+                <a  class="nav-link active" aria-current="page" [routerLink]="['/']"><img class="" src="assets/images/redpaw.png"  height="60px"></a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle"id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Restaurants</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a [routerLink]="['/einsteins']" class="dropdown-item">Einsteins</a>
+                  <a [routerLink]="['/freshii']" class="dropdown-item">Freshii</a>
+                  <a [routerLink]="['/tacotaco']" class="dropdown-item">Taco Taco</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/about']">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/cart']">Cart</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"[routerLink]="['/account']">Account</a>
+              </li>
+            </ul>
+          </div>
+        
+      </nav>
 </div>
