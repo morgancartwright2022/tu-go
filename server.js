@@ -108,7 +108,6 @@ app.get('/Tags/:tags', (req, res) => {
 
 app.get('/Tags/:tags', (req, res) => {
     let choices = req.params.tags.split("_");
-    let allResults = [];
     db.dbConnector.tagRetrieve(choices, options => {
         let displayFormat = formatCustomizations(options);
         res.send(displayFormat);

@@ -17,11 +17,11 @@ const dbConnector = {
     tagRetrieve: (tags, callback) => {
         let tagsSubstr = "";
         for(let i = 0; i < tags.length; i++){
-            if(i + 1 < tags.length) tagsSubstr = tagsSubtr + "'%" + tags[i] + "%' AND"
-            else tagsSubstr = tagsSubstr + "'%" + tags[i] + "%'"
+            if((i + 1) < tags.length) tagsSubstr = tagsSubstr + " tags LIKE '%" + tags[i] + "%' AND "
+            else tagsSubstr = tagsSubstr + "tags LIKE '%" + tags[i] + "%'"
         }
-        console.log("SELECT * FROM foodOptions WHERE tags LIKE " + tagsSubstr);
-        dbConnector.connection.query("SELECT * FROM foodOptions WHERE tags LIKE " + tagsSubstr, function(err, res, fds){
+        console.log("SELECT * FROM foodOptions WHERE " + tagsSubstr);
+        dbConnector.connection.query("SELECT * FROM foodOptions WHERE " + tagsSubstr, function(err, res, fds){
             if(err) throw err;
             console.log(res.length + " entries retrieved.");
             callback(res);
