@@ -13,7 +13,7 @@ const dbConnector = {
         host: '',
         user: '',
         password: '',
-        database: ''  
+        database: ''
     }),
     createDatabase: (dbName) => {
         dbConnector.connection.query('CREATE DATABASE ' + dbName, function(err, res, fds) {
@@ -37,7 +37,7 @@ const dbConnector = {
 
 
 function loadFoodOptions(tbName){
-    fs.readFile("FoodOptions.csv", "utf-8", function (err, dat) {
+    fs.readFile("FoodOptions2.csv", "utf-8", function (err, dat) {
 	    if(err) return console.error(err);
 	    let fileContents = dat;
         let lines = fileContents.split("\r\n");

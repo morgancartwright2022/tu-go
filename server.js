@@ -45,17 +45,15 @@ function formatCustomizations(options){
     for(let i = 0; i < options.length; i++){
         let eachPair = options[i].customizations.split(",");
         for(let j = 0; j < eachPair.length; j++){
-            console.log(eachPair[j]);
             let trimmed = eachPair[j].trim();
             let whole = trimmed.split(":");
-            console.log(whole);
             if(whole[0] !== "" && whole[1] !== ""){
                 let partOne = whole[0].substr(1, whole[0].length-1);
                 let partTwo = whole[1].substr(0, whole[1].length-1);
                 allCusts[partOne] = Number(partTwo);
-            }
-            allJSONS.push({name: options[i].name, description: options[i].description, price: options[i].price, customizations: allCusts});
+            }     
         }
+        allJSONS.push({name: options[i].name, description: options[i].description, price: options[i].price, customizations: allCusts});
     }
     return(JSON.stringify(allJSONS));
 }
@@ -80,3 +78,16 @@ app.get('/TacoTaco', (req, res) => {
         res.send(displayFormat);
     });
 });
+
+app.get('/Price/:min/:max', (req, res) => {
+    if((req.params.min >= Number(req.params.max)) || (Number(req.params.min) < 0) || (Number(req.params.max) < 0) || (Number(req.params.min) > 20.00) || (Number(req.params.max) > 20.00)){
+        res.send({name: null, description: null, price: null, customizations: null})
+    }
+    else{
+        db.dbConnector.priceRetrieve(req.params.min, req.params.max, options => {
+            let displayFormat = formatCustomizations(options);
+            res.send(displayFormat);
+        });
+    }
+});
+
