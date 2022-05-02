@@ -5,7 +5,7 @@ const dbConnector = {
         host: '',
         user: '',
         password: '',
-        database: ''  
+        database: ''
     }),
     storeRetrieve: (storeName, callback) => {
         dbConnector.connection.query("SELECT * FROM foodOptions WHERE store = '" + storeName + "'", function(err, res, fds) {
@@ -14,11 +14,17 @@ const dbConnector = {
             callback(res);
         });
     },
-    tagRetrieve: (tag, callback) => {
-        dbConnector.connection.query("SELECT * FROM foodOptions WHERE tags LIKE " + "'%" + tag + "%'", function(err, res, fds){
+    tagRetrieve: (tags, callback) => {
+        let tagsSubstr = "";
+        for(let i = 0; i < tags.length; i++){
+            if(i + 1 < tags.length) tagsSubstr = tagsSubtr + "'%" + tags[i] + "%' AND"
+            else tagsSubstr = tagsSubstr + "'%" + tags[i] + "%'"
+        }
+        console.log("SELECT * FROM foodOptions WHERE tags LIKE " + tagsSubstr);
+        dbConnector.connection.query("SELECT * FROM foodOptions WHERE tags LIKE " + tagsSubstr, function(err, res, fds){
             if(err) throw err;
             console.log(res.length + " entries retrieved.");
-            callback(res)
+            callback(res);
         });
     },
     priceRetrieve: (minPrice, maxPrice, callback) => {

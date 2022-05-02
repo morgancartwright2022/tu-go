@@ -53,7 +53,7 @@ function formatCustomizations(options){
                 allCusts[partOne] = Number(partTwo);
             }     
         }
-        allJSONS.push({name: options[i].name, description: options[i].description, price: options[i].price, customizations: allCusts});
+        allJSONS.push({id: options[i].id, name: options[i].name, description: options[i].description, price: options[i].price, customizations: allCusts});
     }
     return(JSON.stringify(allJSONS));
 }
@@ -89,5 +89,29 @@ app.get('/Price/:min/:max', (req, res) => {
             res.send(displayFormat);
         });
     }
+});
+
+/*
+app.get('/Tags/:tags', (req, res) => {
+    let choices = req.params.tags.split("_");
+    let allResults = [];
+    for(let i = 0; i < choices.length; i++){
+        db.dbConnector.tagRetrieve(choices[i], options => {
+            let displayFormat = formatCustomizations(options);
+            displayFormat.forEach(item => allResults.push(item));
+        });
+    }
+    let filtered = new Set(allResults);
+    res.send(filtered);
+});
+*/
+
+app.get('/Tags/:tags', (req, res) => {
+    let choices = req.params.tags.split("_");
+    let allResults = [];
+    db.dbConnector.tagRetrieve(choices, options => {
+        let displayFormat = formatCustomizations(options);
+        res.send(displayFormat);
+    });
 });
 
