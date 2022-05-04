@@ -1,7 +1,7 @@
 #wrap{
     margin-top: 0rem;
-    background-image: url("/assets/images/bagels.jpg");
-    background-repeat: repeat;
+   /* background-image: url("/assets/images/bagels.jpg");
+    background-repeat: repeat;*/
     display: flex;
     justify-content: center;
 }
@@ -10,7 +10,7 @@ h2{
     width: 100%;
 }
 #disp{
-    background-color: rgba(255, 255, 255, 0.8);
+    
     padding: 3rem;
     width: 70%;
     display: flex;
@@ -20,15 +20,18 @@ h2{
     gap: 10px 20px;*/
 }
 #prods{
-    display: inline-block;
+    display:block inline;
+   margin: 2px;
     width:40%;
     min-width: 150px;
     color:white;
     background-color: maroon;
 }
-.container-fluid{
-    padding-top: 3rem;
-    margin-bottom: 0px;
-    background-color: rgb(191, 212, 232);
-    color:white;
+.container{
+    width: 70%;
+    background-color: rgba(255,255,255,0.9);
+}
+.jumbotron{
+    background-image: url("/assets/images/bagels.jpg");
+    background-repeat: repeat;
 }

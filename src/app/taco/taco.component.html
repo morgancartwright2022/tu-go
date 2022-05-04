@@ -1,14 +1,18 @@
 <app-head-banner></app-head-banner>
-<h2>Products</h2>
-<div id= "prods" class="container-fluid" *ngFor="let product of products">
-  <div class="row">
-    <div class="col-4">
-      <h4><strong>
-        <a [title]="product.name">
-          {{ product.name }}
-       </a></strong>
-     </h4>
-    <img >
+   
+  <section class="jumbotron text-center">
+      
+    <div class="container">
+      <h1 class="jumbotron-heading">Taco Taco Cafe</h1>
+      <h4>Acclaimed spot with breakfast all day, Tex-Mex classics & signature Norteño tacos in a cozy setting.</h4>
     </div>
-    </div>
-  </div>
+  </section>
+
+  <div id="wrap">
+   <div id="disp">
+     <h2><strong>Products:</strong><h2>
+     <div id= "prods" class="container-fluid col" *ngFor="let product of products">
+  
+        <h4><strong><a [title]="product.name">{{ product.name }}</a></strong></h4>
+        <p>{{ product.price }}</p>
+     

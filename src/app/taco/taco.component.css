@@ -1,6 +1,37 @@
+#wrap{
+    margin-top: 0rem;
+   /* background-image: url("/assets/images/bagels.jpg");
+    background-repeat: repeat;*/
+    display: flex;
+    justify-content: center;
+}
+h2{
+    color: maroon ;
+    width: 100%;
+}
+#disp{
+    
+    padding: 3rem;
+    width: 70%;
+    display: flex;
+    /*
+    justify-content: flex-start;
+    flex-flow: row wrap;
+    gap: 10px 20px;*/
+}
 #prods{
-    width:60%;
+    display:block inline;
+   margin: 2px;
+    width:40%;
     min-width: 150px;
-    margin: 3rem;
-    border: 2px solid maroon;
+    color:white;
+    background-color: maroon;
+}
+.container{
+    width: 70%;
+    background-color: rgba(255,255,255,0.9);
+}
+.jumbotron{
+    background-image: url("/assets/images/tacos.svg");
+    background-repeat: repeat;
 }
