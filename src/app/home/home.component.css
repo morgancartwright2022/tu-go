@@ -1,100 +1,49 @@
-body{
-    
-}
-ul {
-    list-style-type: none;
-    margin: 0;  
-    padding: 0;
-    overflow: hidden;
-    width: 100%;
-    
+:root {
+    --jumbotron-padding-y: 3rem;
   }
-  li {
-    float: left;
-  }
-  li a {
-    display: block;
-    color: white;
-    text-align: center;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 20px;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-.center {
-    /*positioning*/
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
-#grouper{
-    display: flex;
-    justify-content: space-between; 
-
-}
-#cart{
-    padding:10px;
-    background-color: #a16f6f;
-    width:50%;
-    height:600px;
-}
-#restSelect{
-    min-height: fit-content;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; 
-    align-items: center;  
-}
-.restDescr h4{
-    font-size: 40px;
-}
-.restDescr{
+  
+  .jumbotron {
+    padding-top: var(--jumbotron-padding-y);
+    padding-bottom: var(--jumbotron-padding-y);
+    margin-bottom: 0;
+    background-image: url("/assets/images/trinityu.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
     color:white;
-    margin: 10px;
-    padding:10px;
-    height: 300px;
-    width: 90%;
-    background-color: maroon;
-    min-height: fit-content;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; 
-    align-items: center;  
-    
+      
+  }
+  @media (min-width: 768px) {
+    .jumbotron {
+      padding-top: calc(var(--jumbotron-padding-y) * 2);
+      padding-bottom: calc(var(--jumbotron-padding-y) * 2);
+    }
+  }
+  
+  .jumbotron p:last-child {
+    margin-bottom: 0;
+  }
+  
+  .jumbotron-heading {
+    font-weight: 300;
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+  }
+  
+  .jumbotron .container {
+    max-width: 40rem;
+  }
+#buttons{
+    padding-top: 2rem;
+    padding-bottom: 3rem;
 }
-
-    /*text
-    background-color: maroon;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: white;
-    font-size: 60px;
-    width: 70vw;
-    height: 30vw;
-    min-height: fit-content;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; 
-    align-items: center;  
-}
-*/
-#navbar{
-    height: 100px;
-    color:white;
-    background-color: maroon;
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;  
-}
-#homeLogo{
-    height:90px;
-    width: 90px;
-}
-#profileIcon{
-height: 90px;
-}
-#CSI_Pic{
-    height:400px;
-    width: 100%;
-
-}
+  footer {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  footer p {
+    margin-bottom: .25rem;
+  }
+  
+  .box-shadow { box-shadow: 0 .25rem .75rem rgba(94, 3, 3, 0.05); }
+  
