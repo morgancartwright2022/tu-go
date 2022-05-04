@@ -1,31 +1,63 @@
-<!-- Starter HTML for home page component -->
-<div id="navbar">
-    <img id="homeLogo" src="assets/images/whitepaw.png">
-    <ul>
-        <li><a>About Us</a></li>
-        <li><a>Order</a></li>
-        <li><a>Cart</a></li>
-    </ul> 
-    <img id="profileIcon" src = "assets/images/userIcon.png">
-</div>
-<div >
-    <img id = "CSI_Pic" src="assets/images/trinityu.jpg">
-</div>
-<div id="grouper">
-    <div id="cart">
-        <h4>Cart</h4>
-    </div>
+<app-head-banner></app-head-banner>
 
-    <div id="restSelect">
-        <div class="restDescr">
-            <div id="descr"><h4>Freshii</h4><p>Freshii serves all things healthy, all things fresh, and most things natural and organic! Leading with Salads, Freshii also offers Burritos, Wraps, Bowls, Soups, and Smoothies.</p></div>
+<div id="group1">
+   
+    <section class="jumbotron text-center">
+      
+        <div class="container">
+          <h1 class="jumbotron-heading">TU-GO</h1>
+          <h4>Convenient food ordering service made with the busy student in mind. </h4>
+          <p id="buttons">
+            <a href="#" class="btn btn-primary my-2">Log in</a>
+            <a href="#" class="btn btn-secondary my-2">Create an account</a>
+          </p>
         </div>
-        <div class="restDescr">
-            <div id="descr"><h4>Taco Taco</h4><p>Taco Taco Cafe's menu features delicious tacos made from home-made tortillas, as well as traditional Mexican combination platters. Taco Taco Cafe is available for breakfast, lunch and dinner.</p></div>
-        </div>
-        <div class="restDescr">
-            <div id="descr"><h4>Einsteins</h4><p>Visit Einstein Bros. Bagels in the Coates Student Center, next to The Commons Food Court. Einstein's features freshly baked bagels, Caribou coffee and delicious pastries, snacks, signature sandwiches and salads. We also offer several grab-and-go items! You'll stop by for the convenience and keep coming back for the quality and service!</p></div>
-        </div>
-    </div>
-    <button (click)="displayValue()">Get Data Value</button>
+      </section>
+
+      <div class="album py-5 bg-light">
+        <div class="container">
+
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="assets/images/einsteins.svg" alt="Bagels">
+                <div class="card-body">
+                  <p class="card-text">Einstein's features freshly baked bagels, Caribou coffee and delicious pastries, snacks, signature sandwiches and salads. We also offer several grab-and-go items! You'll stop by for the convenience and keep coming back for the quality and service!</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Shop Einsteins</button>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="assets/images/freshii.svg" alt="Healthy lunch bowl">
+                <div class="card-body">
+                  <p class="card-text">Freshii serves all things healthy, all things fresh, and most things natural and organic! Leading with Salads, Freshii also offers Burritos, Wraps, Bowls, Soups, and Smoothies.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Shop Freshii</button>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="assets/images/taco.svg" alt="Tacos">
+                <div class="card-body">
+                  <p class="card-text">Taco Taco Cafe's menu features delicious tacos made from home-made tortillas, as well as traditional Mexican combination platters. Taco Taco Cafe is available for breakfast, lunch and dinner.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Shop Taco Taco</button>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
 </div>

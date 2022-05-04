@@ -1,0 +1,14 @@
+<app-head-banner></app-head-banner>
+   
+<div class="container-fluid">
+  <h1 class="jumbotron-heading">Einstein Bros Bagels</h1>
+  
+
+  <div id="wrap">
+   <div id="disp">
+     <h2><strong>Products:</strong><h2>
+     <div id= "prods" class="container-fluid col" *ngFor="let product of products">
+  
+        <h4><strong><a [title]="product.name">{{ product.name }}</a></strong></h4>
+       <img >
+     </div>

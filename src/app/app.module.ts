@@ -5,20 +5,37 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HeadBannerComponent } from './head-banner/head-banner.component';
-import { BootstrapTestComponent } from './bootstrap-test/bootstrap-test.component';
+import { RouterModule } from '@angular/router';
+import { EinsteinsComponent } from './einsteins/einsteins.component';
+import { FreshiiComponent } from './freshii/freshii.component';
+import { TacoComponent } from './taco/taco.component';
+import { AboutComponent } from './about/about.component';
+import { AccountComponent } from './account/account.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     HeadBannerComponent,
-    BootstrapTestComponent
+    EinsteinsComponent,
+    FreshiiComponent,
+    TacoComponent,
+    AboutComponent,
+    AccountComponent,
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot([
+      {path: '', component: HomeComponent},
+      {path: 'einsteins', component: EinsteinsComponent},
+      {path: 'freshii', component: FreshiiComponent},
+      {path: 'tacotaco', component: TacoComponent},
+      {path: 'about', component: AboutComponent},
+      {path: 'account', component: AccountComponent},
+    ]),
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { }  
