@@ -1,7 +1,7 @@
 // This is our Express server
 // It will handle all of the middleware and back-end data transfer
 const express = require('express');
-const db = require('./database/testdb.js');
+//const db = require('./database/displayQueries.js');
 const cors = require('cors');
 const { __values } = require('tslib');
 const app = express();
@@ -19,16 +19,16 @@ app.get('/', (req, res) => {
     res.send("hello world");
 });
 
-app.get('/data', (req, res) => {
-    // Route that shows the capabilities of sending data from databases
-    db.dbConnector.getValue(value => {
-        value.map(row => {
-            const newRow = row;
-            newRow.name = row.name + " the Cat";
-            return newRow;
-        });
-        res.send(JSON.stringify(value));
-    });
+app.get('/food', (req, res) => {
+    const veggie = req.query.veggie;
+    console.log(veggie)
+    if(veggie === "true")
+        res.send("Veggie!");
+    else
+        res.send("No veggie :(");
+});
+app.get('/user/:username', (req, res) => {
+    res.send(req.params.username);
 });
 
 app.listen(port, () => {
