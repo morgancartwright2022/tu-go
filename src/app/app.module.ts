@@ -11,7 +11,6 @@ import { FreshiiComponent } from './freshii/freshii.component';
 import { TacoComponent } from './taco/taco.component';
 import { AboutComponent } from './about/about.component';
 import { AccountComponent } from './account/account.component';
-import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +22,6 @@ import { CartComponent } from './cart/cart.component';
     TacoComponent,
     AboutComponent,
     AccountComponent,
-    CartComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +32,6 @@ import { CartComponent } from './cart/cart.component';
       {path: 'freshii', component: FreshiiComponent},
       {path: 'tacotaco', component: TacoComponent},
       {path: 'about', component: AboutComponent},
-      {path: 'cart', component: CartComponent},
       {path: 'account', component: AccountComponent},
     ]),
   ],

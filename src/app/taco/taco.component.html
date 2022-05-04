@@ -1,2 +1,14 @@
 <app-head-banner></app-head-banner>
-<p>taco works!</p>
+<h2>Products</h2>
+<div id= "prods" class="container-fluid" *ngFor="let product of products">
+  <div class="row">
+    <div class="col-4">
+      <h4><strong>
+        <a [title]="product.name">
+          {{ product.name }}
+       </a></strong>
+     </h4>
+    <img >
+    </div>
+    </div>
+  </div>
