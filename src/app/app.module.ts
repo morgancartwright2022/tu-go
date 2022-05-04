@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HeadBannerComponent } from './head-banner/head-banner.component';
+import { BootstrapTestComponent } from './bootstrap-test/bootstrap-test.component';
+import { LoginModalComponent } from './home/login-modal/login-modal';
 import { RouterModule } from '@angular/router';
 import { EinsteinsComponent } from './einsteins/einsteins.component';
 import { FreshiiComponent } from './freshii/freshii.component';
@@ -17,6 +20,8 @@ import { AccountComponent } from './account/account.component';
     AppComponent,
     HomeComponent,
     HeadBannerComponent,
+    BootstrapTestComponent,
+    LoginModalComponent
     EinsteinsComponent,
     FreshiiComponent,
     TacoComponent,
@@ -26,6 +31,7 @@ import { AccountComponent } from './account/account.component';
   imports: [
     BrowserModule,
     HttpClientModule,
+    ReactiveFormsModule
     RouterModule.forRoot([
       {path: '', component: HomeComponent},
       {path: 'einsteins', component: EinsteinsComponent},
