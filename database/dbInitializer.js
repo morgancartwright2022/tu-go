@@ -4,16 +4,20 @@ const fs = require('fs');
 const { callbackify } = require('util');
 
 let databaseName = "tuGoDB";
-let tableName = "foodOptions";
-let columns = "id SMALLINT(3) NOT NULL, name VARCHAR(50) NOT NULL, description TINYTEXT, " +
+
+let foodTableName = "foodOptions";
+let foodColumns = "id SMALLINT(3) NOT NULL, name VARCHAR(50) NOT NULL, description TINYTEXT, " +
     "store VARCHAR(30) NOT NULL, price DOUBLE(4,2) NOT NULL, tags TINYTEXT, customizations MEDIUMTEXT, PRIMARY KEY (id)"
+
+let cartTableName = "cart";
+let cartColumns = "username INT(7) NOT NULL, items MEDIUMTEXT NOT NULL, balance DOUBLE(5,2) NOT NULL, PRIMARY KEY (username)"
 
 const dbConnector = {
     connection: mysql.createConnection({
-        host: '',
-        user: '',
-        password: '',
-        database: ''
+        host: 'database-1.c4ealzdwrdcb.us-west-1.rds.amazonaws.com',
+        user: 'admin',
+        password: 'SneakySnake$77',
+        database: 'tuGoDB'
     }),
     createDatabase: (dbName) => {
         dbConnector.connection.query('CREATE DATABASE ' + dbName, function(err, res, fds) {
@@ -34,7 +38,6 @@ const dbConnector = {
         });
     }
 }
-
 
 function loadFoodOptions(tbName){
     fs.readFile("FoodOptions2.csv", "utf-8", function (err, dat) {
@@ -58,7 +61,8 @@ function loadFoodOptions(tbName){
     });
 }
 
-//dbConnector.createTable(tableName, columns);
-//loadFoodOptions(tableName);
+//dbConnector.createTable(foodTableName, foodColumns);
+//loadFoodOptions(foodTableName);
+dbConnector.createTable(cartTableName, cartColumns);
 
 exports.dbConnector = dbConnector;

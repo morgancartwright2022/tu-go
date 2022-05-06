@@ -43,6 +43,7 @@ function formatCustomizations(options){
     let allJSONS = [];
     let allCusts = {};
     for(let i = 0; i < options.length; i++){
+        allCusts = {};
         let eachPair = options[i].customizations.split(",");
         for(let j = 0; j < eachPair.length; j++){
             let trimmed = eachPair[j].trim();
@@ -53,9 +54,28 @@ function formatCustomizations(options){
                 allCusts[partOne] = Number(partTwo);
             }     
         }
-        allJSONS.push({id: options[i].id, name: options[i].name, description: options[i].description, price: options[i].price, customizations: allCusts});
+        allJSONS.push({id: options[i].id, name: options[i].name, store: options[i].store, description: options[i].description, price: options[i].price});
     }
-    return(JSON.stringify(allJSONS));
+    return JSON.stringify(allJSONS);
+}
+
+function formatCart(order, callback){
+    let objItems = [];
+    let items = order[0].items.split(", ");
+    function addItem(i) {
+        if(i == items.length) {
+            const data = {balance: order[0].balance, items: objItems};
+            callback(JSON.stringify(data));
+        }
+        else {
+            let curItem = Number(items[i]);
+            db.dbConnector.idRetrieve(curItem, returned => {
+                objItems.push({id: returned[0].id, name: returned[0].name, price: returned[0].price});
+                addItem(i + 1);
+            });
+        }
+    }
+    addItem(0);
 }
 
 app.get('/Freshii', (req, res) => {
@@ -91,26 +111,56 @@ app.get('/Price/:min/:max', (req, res) => {
     }
 });
 
-/*
-app.get('/Tags/:tags', (req, res) => {
-    let choices = req.params.tags.split("_");
-    let allResults = [];
-    for(let i = 0; i < choices.length; i++){
-        db.dbConnector.tagRetrieve(choices[i], options => {
-            let displayFormat = formatCustomizations(options);
-            displayFormat.forEach(item => allResults.push(item));
-        });
-    }
-    let filtered = new Set(allResults);
-    res.send(filtered);
-});
-*/
-
 app.get('/Tags/:tags', (req, res) => {
     let choices = req.params.tags.split("_");
     db.dbConnector.tagRetrieve(choices, options => {
         let displayFormat = formatCustomizations(options);
         res.send(displayFormat);
     });
+});
+
+app.get('/Cart/Add/:user/:id', (req, res) => {
+    db.dbConnector.idRetrieve(req.params.id, returned => {
+        //Seeing whether the user has an existing cart
+        db.dbConnector.retrieveCart(req.params.user, currentCart => {
+            //If not create a new cart and put the one item in
+            if(currentCart.length > 0) {
+                //If they do, update their existing cart
+                db.dbConnector.addToCart(req.params.user, currentCart[0].items + ", " + req.params.id, currentCart[0].balance + returned[0].price, () => {
+                    //Retrieve carts of either type now that they both would be up to date
+                    db.dbConnector.retrieveCart(req.params.user, uniformRetrieve => {
+                        formatCart(uniformRetrieve, cartDisplay => {
+                            res.send(cartDisplay);
+                        });
+                    });
+                });
+            }
+            else{
+                db.dbConnector.createNewCart(req.params.user, req.params.id, returned[0].price, () => {
+                    db.dbConnector.retrieveCart(req.params.user, result => {
+                        formatCart(result, cartDisplay => {
+                            res.send(cartDisplay);
+                        });
+                    })
+                });
+            }
+        });
+    });
+});
+
+app.get('/Cart/View/:user', (req, res) => {
+    db.dbConnector.retrieveCart(req.params.user, result => {
+        formatCart(result, cartDisplay => {
+            res.send(cartDisplay);
+        });
+    })
+});
+
+app.get('/Cart/Remove/:user/:id', (req, res) => {
+
+});
+
+app.get('/Cart/Delete/:user', (req, res) => {
+    db.dbConnector.deleteExistingCart(req.params.user)
 });
 
