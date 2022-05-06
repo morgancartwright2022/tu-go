@@ -54,7 +54,7 @@ function formatCustomizations(options){
                 allCusts[partOne] = Number(partTwo);
             }     
         }
-        allJSONS.push({id: options[i].id, name: options[i].name, store: options[i].store, description: options[i].description, price: options[i].price});
+        allJSONS.push({id: options[i].id, name: options[i].name, store: options[i].store, description: options[i].description, price: options[i].price, customizations: allCusts});
     }
     return JSON.stringify(allJSONS);
 }
