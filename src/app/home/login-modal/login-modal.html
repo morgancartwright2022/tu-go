@@ -1,0 +1,54 @@
+<div style="display: inline">
+<button
+  type="button"
+  class="btn btn-primary my-2"
+  (click)="openPopup()">Log in
+</button>
+<div
+  class="modal"
+  tabindex="-1"
+  role="dialog"
+  [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: dimgray;">        
+        <h4 class="modal-title" style="color: white;"><b>Login to TU-go</b></h4>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="loginForm" (ngSubmit)="loginFormSubmit">
+        <div class="mb-2">
+          <label for="id_email" class="form-label" style="color: black;">Email address</label>
+          <input formControlName="email" [class.is-invalid]="emailField===null || (emailField.touched && emailField.invalid)" type="email"
+            class="form-control" id="id_email">
+          <div *ngIf="emailField===null || (emailField.touched && emailField.hasError('required'))" class="d-block invalid-feedback">
+            Please provide a Trinty University Email.</div>
+          <div *ngIf="emailField===null || (emailField.touched && emailField.hasError('email'))" class="d-block invalid-feedback">
+            Email address is not valid.</div>
+        </div>
+        <div class="mb-3" style="padding-bottom:1rem;">
+          <label for="id_Password" class="form-label" style="color: black;">Password</label>
+          <input formControlName="password" [class.is-invalid]="passwordField===null || (passwordField.touched && passwordField.invalid)"
+            type="password" class="form-control" id="id_Password">
+          <div *ngIf="passwordField===null || (passwordField.touched && passwordField.hasError('required'))" class="d-block invalid-feedback">
+            Please provide a Password.</div>
+        </div>
+        <div>
+          <div style="display: flex; justify-content: flex-end">
+            <div style="padding-right:4px">
+              <button type="button" class="btn btn-danger" (click)="closePopup()">
+                Cancel
+              </button>
+            </div>
+            <div>
+              <button [disabled]="loginForm.invalid" type="submit" class="btn btn-info" (click)="loginFormSubmit();closePopup()">
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

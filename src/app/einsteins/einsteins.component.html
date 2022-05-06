@@ -1,0 +1,25 @@
+<app-head-banner></app-head-banner>
+<section class="jumbotron text-center">
+
+  <div class="container">
+    <h1 class="jumbotron-heading">Einsteins Bro Bagels</h1>
+    <h4>Einstein Bros.® Bagels is your neighborhood bagel shop. We’re proud to provide our guests with freshly baked
+      bagels, breakfast sandwiches, lunch sandwiches, coffee, catering and so much more. Stop on in. We’ll have a fresh
+      bagel and cup of coffee ready for you.</h4>
+  </div>
+</section>
+
+<div class="container" id="wrap">
+
+    <h2><strong>Products:</strong>
+      <h2>
+        <div id="prods" class="col-xs-12 col-sm-12 col-md-3 col-lg-3 mx-5 my-3" *ngFor="let product of products">
+          <h4><strong><a [title]="product.name">{{ product.name }}</a></strong></h4>
+          <button id= "add" type="button" (click)=" addToCart(product.id)">Add to Cart  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+          </svg></button>
+          <div type="button" class="btn-group" role="group"(click)="addCustom(customization.name)" *ngFor="let customization of product.customizations">
+            <button class="btn btn-primary my-2">{{customization.name}} (${{customization.price}})</button>
+
+          </div>
+        </div>
