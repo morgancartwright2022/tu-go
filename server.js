@@ -61,6 +61,8 @@ function formatCustomizations(options){
 
 function formatCart(order, callback){
     let objItems = [];
+    if(order.length < 1)
+        callback(JSON.stringify({balance: 0, items: []}));
     let items = order[0].items.split(", ");
     function addItem(i) {
         if(i == items.length) {

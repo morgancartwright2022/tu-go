@@ -77,6 +77,7 @@ const dbConnector = {
         dbConnector.connection.query('SELECT * FROM cart WHERE username = ' + user, function(err, res, fds) {
             if(err) throw err;
             console.log(res.length + " entries retrieved.");
+            console.log(res);
             callback(res);
         });
     }
