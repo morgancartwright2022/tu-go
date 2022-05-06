@@ -31,6 +31,7 @@ const dbConnector = {
             console.log(tbName + " created.");
         });
     },
+    //Loads one option at a time
     loadOption: (indivQuery) => {
         dbConnector.connection.query(indivQuery, function(err, res, fds) {
             if(err) throw err;
@@ -39,6 +40,7 @@ const dbConnector = {
     }
 }
 
+//Parses CSV and loads each row into the database
 function loadFoodOptions(tbName){
     fs.readFile("FoodOptions2.csv", "utf-8", function (err, dat) {
 	    if(err) return console.error(err);
@@ -63,6 +65,6 @@ function loadFoodOptions(tbName){
 
 //dbConnector.createTable(foodTableName, foodColumns);
 //loadFoodOptions(foodTableName);
-dbConnector.createTable(cartTableName, cartColumns);
+//dbConnector.createTable(cartTableName, cartColumns);
 
 exports.dbConnector = dbConnector;

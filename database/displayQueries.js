@@ -51,7 +51,6 @@ const dbConnector = {
             console.log(res.length + " entries created.");
             callback(res);
         });
-
     },
     //For CARTS (This will create a new entry)
     createNewCart: (user, item, price, callback) => {
@@ -61,7 +60,7 @@ const dbConnector = {
             callback(res);
         });
     },
-    //For CARTS
+    //For CARTS (This will delete an entire entry)
     deleteExistingCart: (user, callback) => {
         dbConnector.connection.query('DELETE FROM cart WHERE username = ' + user, function(err, res, fds) {
             if(err) throw err;
@@ -69,15 +68,14 @@ const dbConnector = {
             callback(res);
         });
     },
-    //For CARTS
+    //For CARTS (This will do updates to an entry)
     removeFromCart: () => {
-        //This will do updates
+        //Unimplemented
     },
+    //For CARTS (This will select and return an entry)
     retrieveCart: (user, callback) => {
         dbConnector.connection.query('SELECT * FROM cart WHERE username = ' + user, function(err, res, fds) {
             if(err) throw err;
-            console.log(res.length + " entries retrieved.");
-            console.log(res);
             callback(res);
         });
     }
