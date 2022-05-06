@@ -14,3 +14,4 @@
      <div id= "prods" class="container-fluid col" *ngFor="let product of products">
   
         <h4><strong><a [title]="product.name">{{ product.name }}</a></strong></h4>
+        <button type="button" (click)=" addToCart(product.id)">+ {{product.id}}</button>

@@ -1,5 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { CartComponent } from '../cart/cart.component';
 import { Observable } from 'rxjs';
 import { products } from '../products';
 
@@ -31,7 +32,11 @@ export class TacoComponent {
   loadProds(){
     return this.http.get(this.dataUrl, {responseType:'json'})
   }
-  share() {
-    window.alert('The product has been shared!');
+  addToCart(prod: string){
+    var userID = "0855313"
+    var url="Cart/Add/"+userID +"/"+ prod
+    console.log(url)
+
+
   }
 }
