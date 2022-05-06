@@ -41,9 +41,9 @@ app.listen(port, () => {
 //Olivia's stuff vvv
 function formatCustomizations(options){
     let allJSONS = [];
-    let allCusts = {};
+    let allCusts = [];
     for(let i = 0; i < options.length; i++){
-        allCusts = {};
+        allCusts = [];
         let eachPair = options[i].customizations.split(",");
         for(let j = 0; j < eachPair.length; j++){
             let trimmed = eachPair[j].trim();
@@ -51,10 +51,11 @@ function formatCustomizations(options){
             if(whole[0] !== "" && whole[1] !== ""){
                 let partOne = whole[0].substr(1, whole[0].length-1);
                 let partTwo = whole[1].substr(0, whole[1].length-1);
-                allCusts[partOne] = Number(partTwo);
+                allCusts.push({name: partOne, price: Number(partTwo)});
             }     
         }
-        allJSONS.push({id: options[i].id, name: options[i].name, store: options[i].store, description: options[i].description, price: options[i].price, customizations: allCusts});
+        allJSONS.push({id: options[i].id, name: options[i].name, store: options[i].store, 
+            description: options[i].description, price: options[i].price, customizations: allCusts});
     }
     return JSON.stringify(allJSONS);
 }
