@@ -1,5 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { CartComponent } from '../cart/cart.component';
 import { Observable } from 'rxjs';
 import { products } from '../products';
 
@@ -10,6 +11,7 @@ import { products } from '../products';
 })
 export class EinsteinsComponent {
   products: any = [];
+  customizations: any = []
   private dataUrl = "http://ec2-3-101-146-86.us-west-1.compute.amazonaws.com:3000/Einsteins"
   constructor(private http: HttpClient){
   }
@@ -22,10 +24,26 @@ export class EinsteinsComponent {
       this.products = products;
     });
   }
+  /*getCusts(){
+    let text = "";
+    for (let x in products.allCusts) {
+      text += products[x];
+    }
+  }*/
   loadProds(){
     return this.http.get(this.dataUrl, {responseType:'json'})
   }
-  share() {
-    window.alert('The product has been shared!');
+  sendProds(url:string){
+    return this.http.get(url, {responseType:'json'})
+  }
+  addCustom(cust:string){
+    
+
+  }
+  addToCart(prod: string){
+    var userID = "0855313"
+    var url="http://ec2-3-101-146-86.us-west-1.compute.amazonaws.com:3000/Cart/Add/"+userID +"/"+ prod
+    this.sendProds(url).subscribe()
+
   }
 }

@@ -9,7 +9,7 @@ import { products } from '../products';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent {
-  products: any = [];
+  cartProds: any;
   private dataUrl = "http://ec2-3-101-146-86.us-west-1.compute.amazonaws.com:3000/Cart/View/0855313"
   constructor(private http: HttpClient){
   }
@@ -19,8 +19,8 @@ export class CartComponent {
     console.log("check")
   }
   getCartProducts(){
-    this.loadCartProds().subscribe(products => {
-      this.products = products;
+    this.loadCartProds().subscribe(cartProds => {
+      this.cartProds = cartProds;
     });
   }
   

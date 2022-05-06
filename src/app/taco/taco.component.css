@@ -26,6 +26,8 @@ h2{
     min-width: 150px;
     color:rgb(122, 122, 122);
     background-color: maroon;
+    padding:20px;
+
 }
 .container{
     width: 70%;
@@ -34,4 +36,9 @@ h2{
 .jumbotron{
     background-image: url("/assets/images/tacos.jpg");
     background-repeat: repeat;
+}
+#add{
+    color:rgb(130, 25, 25);
+    font-size:small;
+    background-color: rgb(255, 255, 255);
 }

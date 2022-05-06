@@ -1,4 +1,24 @@
-<h2><strong>Products:</strong><h2>
-    <div id= "prods" class="container-fluid col" *ngFor="let product of products">
-        
-       <h4><strong><a [title]="product.name">{{ product.name }}</a></strong></h4>
+<app-head-banner></app-head-banner>
+
+
+<section class="jumbotron text-center">
+
+    <div class="container">
+        <h1 class="jumbotron-heading">Cart</h1>
+    </div>
+</section>
+
+<div id="wrap">
+    <div id="disp">
+        <div id="prods" class="container-fluid col" *ngFor="let item of cartProds.items">
+
+            <h4><strong><a [title]="item.name">{{ item.name }}</a></strong></h4>
+
+        </div>
+
+    </div>
+    <br>
+    <h2>Cart Total: {{cartProds.balance}}</h2>
+</div>
+   
+   

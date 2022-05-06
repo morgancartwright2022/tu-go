@@ -4,7 +4,7 @@
       
     <div class="container">
       <h1 class="jumbotron-heading">Freshii</h1>
-      <h4>Fresh food</h4>
+      <h4>Health</h4>
     </div>
   </section>
 
@@ -14,5 +14,9 @@
      <div id= "prods" class="container-fluid col" *ngFor="let product of products">
   
         <h4><strong><a [title]="product.name">{{ product.name }}</a></strong></h4>
-        <p>{{ product.price }}</p>
-     
+        <div type="button" (click)= "addCustom(customization.name)"*ngFor="let customization of product.customizations">
+          <button class="btn btn-primary my-2">{{customization.name}} ({{customization.price}} )</button>
+
+        </div>
+        <button type="button" (click)=" addToCart(product.id)">+</button>
+    </div>
