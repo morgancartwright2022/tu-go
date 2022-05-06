@@ -153,7 +153,7 @@ app.get('/Cart/View/:user', (req, res) => {
         formatCart(result, cartDisplay => {
             res.send(cartDisplay);
         });
-    })
+    });
 });
 
 app.get('/Cart/Remove/:user/:id', (req, res) => {
@@ -161,6 +161,8 @@ app.get('/Cart/Remove/:user/:id', (req, res) => {
 });
 
 app.get('/Cart/Delete/:user', (req, res) => {
-    db.dbConnector.deleteExistingCart(req.params.user)
+    db.dbConnector.deleteExistingCart(req.params.user, result => {
+        res.send("Deleted.");
+    });
 });
 

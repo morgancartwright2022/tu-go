@@ -62,10 +62,11 @@ const dbConnector = {
         });
     },
     //For CARTS
-    deleteExistingCart: (user) => {
+    deleteExistingCart: (user, callback) => {
         dbConnector.connection.query('DELETE FROM cart WHERE username = ' + user, function(err, res, fds) {
             if(err) throw err;
             console.log(res + " entries deleted.");
+            callback(res);
         });
     },
     //For CARTS
