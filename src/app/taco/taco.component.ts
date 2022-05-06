@@ -22,6 +22,12 @@ export class TacoComponent {
       this.products = products;
     });
   }
+  /*getCusts(){
+    let text = "";
+    for (let x in products.allCusts) {
+      text += products[x];
+    }
+  }*/
   loadProds(){
     return this.http.get(this.dataUrl, {responseType:'json'})
   }

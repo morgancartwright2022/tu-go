@@ -32,6 +32,6 @@ h2{
     background-color: rgba(255,255,255,0.9);
 }
 .jumbotron{
-    background-image: url("/assets/images/tacos.svg");
+    background-image: url("/assets/images/tacos.jpg");
     background-repeat: repeat;
 }
