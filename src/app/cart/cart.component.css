@@ -3,11 +3,11 @@
 }
 h2{
     color: maroon ;
-    width: 100%;
+    margin-left:15%;
 }
 
 #prods{
-
+    width:70%;
     display:block inline;
     color:white;
     background-color: maroon;
@@ -17,16 +17,15 @@ h2{
     background-color: rgba(255, 255, 255, 0.9);
 }
 .jumbotron{
-    background-image: url("/assets/images/tacos.svg");
+    background-image: url("/assets/images/carts.jpg");
     background-repeat: repeat;
     
+}
+btn{
+    margin-left:15%;
 }
 button{
     background-color: brown;
     border-color: rgb(171, 110, 110);
     font-size: small;
-}
-#add{
-    background-color: white;
-    color:brown;
 }

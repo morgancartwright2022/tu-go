@@ -1,0 +1,10 @@
+.jumbotron {
+    padding-top: var(--jumbotron-padding-y);
+    padding-bottom: var(--jumbotron-padding-y);
+    margin-bottom: 0;
+    background-image: url("/assets/images/trinityu.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    color:white;
+      
+  }

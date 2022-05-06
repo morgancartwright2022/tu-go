@@ -1,34 +1,32 @@
 #wrap{
-    margin-top: 0rem;
-    background-image: url("/assets/images/bagels.jpg");
-    background-repeat: repeat;
-    display: flex;
-    justify-content: center;
+    background-color: rgb(255, 255, 255);
 }
 h2{
     color: maroon ;
     width: 100%;
 }
-#disp{
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 3rem;
-    width: 70%;
-    display: flex;
-    /*
-    justify-content: flex-start;
-    flex-flow: row wrap;
-    gap: 10px 20px;*/
-}
+
 #prods{
-    display: inline-block;
-    width:40%;
-    min-width: 150px;
+
+    display:block inline;
     color:white;
     background-color: maroon;
 }
-.container-fluid{
-    padding-top: 3rem;
-    margin-bottom: 0px;
-    background-color: rgb(191, 212, 232);
-    color:white;
+.container{
+    width: 80%;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+.jumbotron{
+    background-image: url("/assets/images/bagels.jpg");
+    background-repeat: repeat;
+    
+}
+button{
+    background-color: brown;
+    border-color: rgb(171, 110, 110);
+    font-size: small;
+}
+#add{
+    background-color: white;
+    color:brown;
 }
