@@ -12,7 +12,7 @@ import { products } from '../products';
 export class FreshiiComponent {
   products: any = [];
   customizations: any = []
-  private dataUrl = "http://ec2-3-101-146-86.us-west-1.compute.amazonaws.com:3000/Freshii"
+  private dataUrl = "http://ec2-54-219-42-139.us-west-1.compute.amazonaws.com:3000/Freshii"
   constructor(private http: HttpClient){
   }
 
@@ -42,7 +42,7 @@ export class FreshiiComponent {
   }
   addToCart(prod: string){
     var userID = "0855313"
-    var url="http://ec2-3-101-146-86.us-west-1.compute.amazonaws.com:3000/Cart/Add/"+userID +"/"+ prod
+    var url="http://ec2-54-219-42-139.us-west-1.compute.amazonaws.com:3000/Cart/Add/"+userID +"/"+ prod
     this.sendProds(url).subscribe()
 
   }

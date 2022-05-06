@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  private dataUrl = 'http://ec2-3-101-146-86.us-west-1.compute.amazonaws.com:3000/data';
+  private dataUrl = 'http://ec2-54-219-42-139.us-west-1.compute.amazonaws.com:3000/data';
   constructor(
     private http: HttpClient) { }
   
