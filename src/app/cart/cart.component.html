@@ -1,6 +1,5 @@
 <app-head-banner></app-head-banner>
 
-
 <section class="jumbotron text-center">
 
     <div class="container">
@@ -10,15 +9,19 @@
 
 <div id="wrap">
     <div id="disp">
-        <div id="prods" class="container-fluid col" *ngFor="let item of cartProds.items">
+        <div id="prods" class="container-fluid my-3" *ngFor="let item of cartProds.items">
 
             <h4><strong><a [title]="item.name">{{ item.name }}</a></strong></h4>
-
+            <p>{{item.price}}</p>
         </div>
 
     </div>
     <br>
-    <h2>Cart Total: {{cartProds.balance}}</h2>
+    <h2 >Cart Total: {{cartProds.balance}}</h2>
+    <div type="button" class="btn-group inline" role="group">
+        <button class="btn btn-primary my-2" (click)="goCheckout()">Checkout</button>
+        <button class="btn btn-primary my-2" (click)="clearCart()">Clear Cart</button>
+      </div>
 </div>
    
    

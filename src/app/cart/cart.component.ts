@@ -27,4 +27,10 @@ export class CartComponent {
   loadCartProds(){
     return this.http.get(this.dataUrl, {responseType:'json'})
   }
+  clearCart(){
+    this.dataUrl="http://ec2-3-101-146-86.us-west-1.compute.amazonaws.com:3000/Cart/Delete/0855313"
+  }
+  goCheckout(){
+    this.dataUrl="http://ec2-3-101-146-86.us-west-1.compute.amazonaws.com:3000/Checkout"
+  }
 }

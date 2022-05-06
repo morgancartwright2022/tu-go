@@ -1,31 +1,31 @@
 #wrap{
-    margin-top: 0rem;
-    display: flex;
-    justify-content: center;
+    background-color: rgb(255, 255, 255);
 }
 h2{
     color: maroon ;
-    width: 100%;
+    margin-left:15%;
 }
-#disp{
-    
-    padding: 3rem;
-    width: 70%;
-    display: flex;
-    
-    justify-content: flex-start;
-    flex-flow: row wrap;
-    /*gap: 10px 20px;*/
-}
+
 #prods{
+    width:70%;
     display:block inline;
-   margin: 2px;
-    width:40%;
-    min-width: 150px;
     color:white;
     background-color: maroon;
 }
 .container{
-    width: 70%;
-    background-color: rgba(255,255,255,0.9);
+    width: 80%;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+.jumbotron{
+    background-image: url("/assets/images/carts.jpg");
+    background-repeat: repeat;
+    
+}
+btn{
+    margin-left:15%;
+}
+button{
+    background-color: brown;
+    border-color: rgb(171, 110, 110);
+    font-size: small;
 }
