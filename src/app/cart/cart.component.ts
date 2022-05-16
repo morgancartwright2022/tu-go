@@ -10,7 +10,7 @@ import { products } from '../products';
 })
 export class CartComponent {
   cartProds: any;
-  private dataUrl = "http://ec2-3-101-146-86.us-west-1.compute.amazonaws.com:3000/Cart/View/0855313"
+  private dataUrl = "http://ec2-13-57-61-32.us-west-1.compute.amazonaws.com:3000/Cart/View/0855313"
   constructor(private http: HttpClient){
   }
 
@@ -28,9 +28,9 @@ export class CartComponent {
     return this.http.get(this.dataUrl, {responseType:'json'})
   }
   clearCart(){
-    this.dataUrl="http://ec2-3-101-146-86.us-west-1.compute.amazonaws.com:3000/Cart/Delete/0855313"
+    this.dataUrl="http://ec2-13-57-61-32.us-west-1.compute.amazonaws.com:3000/Cart/Delete/0855313"
   }
   goCheckout(){
-    this.dataUrl="http://ec2-3-101-146-86.us-west-1.compute.amazonaws.com:3000/Checkout"
+    this.dataUrl="http://ec2-13-57-61-32.us-west-1.compute.amazonaws.com:3000/Checkout"
   }
 }
