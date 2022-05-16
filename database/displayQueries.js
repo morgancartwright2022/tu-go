@@ -1,7 +1,8 @@
 const mysql = require('mysql');
 
 const dbConnector = {
-    connection: mysql.createConnection({
+    connection: mysql.createPool({
+        connectionLimit: 10,
         host: 'database-1.c4ealzdwrdcb.us-west-1.rds.amazonaws.com',
         user: 'admin',
         password: 'SneakySnake$77',
