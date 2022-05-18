@@ -12,7 +12,7 @@ jobs:
           node-version: 14.x
       - name: Setup
         run: npm esbuild
-        run: npm ci
+             npm ci
         
       - name: Test
         run: |
